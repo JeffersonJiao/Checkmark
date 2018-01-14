@@ -52,11 +52,11 @@ $(document).ready(()=>{
                         result[i].poster_name = 'You';
                     }
                     append = append + "<div class='list-data-wrapper'>" + result[i].item + "<br><small>Added by: " + result[i].poster_name + 
-                    "</small><form><div class='form-group form-group-sm'><button class='trash' type='submit'></button></div>" +
-                    "<input type='hidden' name='selecteditem' value='<%=lists[i].id %>'/>" +
-                    "</form><hr/></div>";
+                    "</small><form action='/delete' method='POST'><div class='form-group form-group-sm'><button class='trash' type='submit'></button></div>" +
+                    "<input type='hidden' name='selecteditem' value='"+ result[i]._id +"'/></form><hr/></div>";
                    }
                    $("#homeList").html(append);
+                   console.log("add");
                    $("#addInput").val('');
                 },
               });

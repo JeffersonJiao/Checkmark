@@ -47,7 +47,6 @@ router.get('/',authCheck,(req,res)=>{
 
 router.post('/',(req,res)=>{
     var data = req.body.item;
-    
     var user_id = (req.session.passport.user);
     User.findOne({_id:user_id},(err,user)=>{
         if(err) throw err;
@@ -59,8 +58,9 @@ router.post('/',(req,res)=>{
             poster_id: user.id,
             poster_name: user.username,
         }).save().then((newitem)=>{
-            Checkmark.find({userscode},(err,datas)=>{
+            Checkmark.find({checkmarkcode:userscode},(err,datas)=>{
                 if(err) throw err;
+                console.log(userscode)
                 res.json([datas,user_id]);
             });
         });
