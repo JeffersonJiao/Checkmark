@@ -1,0 +1,56 @@
+<%-include('./partials/nav') %>
+<div class="content">
+    <div class="container">
+        
+        <div class="chat-code">
+            <form class="form-inline no-gutters">
+                    <div class="col-7 form-group form-group-sm">
+                        <input type="text" placeholder="Enter chat code here..." class="form-control" name="list">
+                    </div>
+                    <div class="col-5 form-group form-group-sm">
+                        <button type="submit" class="btn btn-block">Submit</button>
+                    </div>
+                </form>
+        </div>
+            
+        <div class="chat-box list-chat  card card-primary">
+            <div class="card-header">John Doe</div>
+            <div class="card-body">
+                <p>You dont have any list yet</p>
+                <hr>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+                <p>You dont have any list yet</p>
+            </div>
+        </div>
+        <div class="checkmark-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <form>
+                                <div class="form-group form-group-sm">
+                                    <input type="text" placeholder="Add item" class="form-control" name="list">
+                                </div>
+                                <button type="submit" class="btn btn-block">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- contentFor('customStyle') %>
+<link rel="stylesheet" href="/css/chat.css">

@@ -1,0 +1,125 @@
+*{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+    overflow-y: scroll;
+}
+body{
+    background-color: rgba(44, 62, 80,1.0)
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color: rgba(0,0,0,.3);
+}
+.overlay-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+}
+.hamburger-menu{
+    font-size:30px;
+    cursor:pointer;
+    color: #fff;
+}
+.menu-wrapper{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    background-color: #eee;
+    z-index: 10;
+}
+.overlay-content .card-body{
+    position: relative;
+    text-align: left;
+    overflow: hidden;
+}
+.navbar-light{
+    background-color: #2C3E50;
+}
+.nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.content{
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff;
+    max-height: 75vh;
+}
+.checkmark-form{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    bottom:0px;
+    left: 0px;
+    background-color:#eee;
+    padding: 1rem;
+}
+.account a{
+    font-weight:500;
+    cursor: pointer;
+    color: #fff;
+}
+.content .card{
+    margin-top: 10px;
+}
+.list-chat{
+    height: 100%;
+    max-height: 72vh;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.6);
+    margin-bottom: 1rem;
+}
+.list-chat .card-body{
+    overflow-y: auto;
+}
+.cmcode{
+    font-weight: 450;
+}
+.code-wrapper{
+    text-align: center;
+}
+.list-data-wrapper{
+    position: relative;
+    display: block;
+}
+.trash{
+    position: absolute;
+    display: block;
+    right: 0;
+    top:0;  
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    width: 20px;
+    height: 20px;
+    background-image: url('/images/garbage.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+@media only screen and (max-width: 576px) {
+    html{
+        font-size: 14px;
+    }
+}

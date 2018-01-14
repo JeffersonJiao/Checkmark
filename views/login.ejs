@@ -1,0 +1,70 @@
+<%- contentFor('customStyle') %>
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="container">
+        <%if(success_msg!=""){%>
+            <div class="row">
+                <div class="col-12 alert alert-success">
+                    <%=success_msg%>
+                </div>
+            </div>
+        <%}%>
+        <%if(error_msg!=""){%>
+            <div class="row">
+                <div class="col-12 alert alert-danger">
+                    <%=error_msg%>
+                </div>
+            </div>
+        <%}%>
+        <%if(error!=""){%>
+            <div class="row">
+                <div class="col-12 alert alert-danger">
+                    <%=error%>
+                </div>
+            </div>
+        <%}%>
+        <div class="row">
+            <div class="col-12 col-lg-5 login-wrapper">
+                    <div class="login">
+                        <form action="/auth/login" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"> Remember me
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-block">Submit</button>
+                        </form>
+                    </div>   
+                </div>
+                <div class="divider col-12 col-lg-2">
+                    <div class="vertical-line">
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                        <div class="google-login">
+                            <p>For easy login you can use your gmail account</p>
+                            <a href="/auth/google" class="btn btn-secondary btn-block"><span class="gmail-icon"></span>Login with Google</a>
+                            <img src="/images/icon.png"/>
+                            <h3>Checkmark</h3>
+                        </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="register-class">
+                        Need an account? <a href="/auth/register"> Sign up now!</a>
+                </div>
+            </div>
+        </div> 
+</div>
+
+

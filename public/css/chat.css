@@ -1,0 +1,21 @@
+body{
+    background: #fff;
+}
+.chat-code{
+    padding: 2px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+.chat-code input[type='text']{
+    width: 100%;
+    margin-right: 5px;
+}
+.chat-code button{
+    margin-left: 5px;
+}
+.chat-box{
+    position: relative;
+    margin-top: 0;
+    padding-top: 0;
+    max-height: 64vh;
+}

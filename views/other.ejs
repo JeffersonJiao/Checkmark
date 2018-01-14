@@ -1,0 +1,32 @@
+<%-include('./partials/nav') %>
+<div class="content">
+    <div class="container">
+        <div class="list-chat card card-primary">
+            <div class="card-header">My List</div>
+            <div class="card-body">
+                <p>You dont have any list yet</p>
+            </div>
+        </div>
+        <div class="checkmark-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <form action="/" method="post">
+                                <div class="form-group form-group-sm">
+                                    <input type="text" placeholder="Add item" class="form-control" name="list">
+                                </div>
+                                <button type="submit" class="btn btn-block">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- contentFor('customStyle') %>
+<link rel="stylesheet" href="/css/home.css">

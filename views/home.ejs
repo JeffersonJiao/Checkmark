@@ -1,0 +1,57 @@
+<%-include('./partials/nav') %>
+<div class="content">
+    <div class="container">
+        <div class="list-chat card card-primary">
+            <div class="card-header">My List</div>
+            <div id="homeList" class="card-body">
+                <%if(lists != ""){%>
+                    <% for(var i=0; i < lists.length; i++){ %>
+                        <div class="list-data-wrapper">
+
+                 
+                        <%= lists[i].item %><br/>
+                        <small>Added by: 
+                            <% if(lists[i].poster_id != user.id) {%>
+                                <%= lists[i].poster_name %>
+                            <%}else{%>
+                                You
+                            <%}%>
+                        </small>
+                        <form action="/delete" method="post">
+                            <div class='form-group form-group-sm'>
+                                <button class='trash' type='submit'></button>
+                            </div>
+                            <input type="hidden" name="selecteditem" value="<%=lists[i].id %>">
+                        </form>
+                        <hr>
+
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <p>You dont have any list yet</p>
+                <% } %>
+            </div>
+        </div>
+        <div class="checkmark-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <form id="addItemForm" method="post">
+                                <div class="form-group form-group-sm">
+                                    <input id="addInput" type="text" placeholder="Add item" class="form-control" name="list">
+                                </div>
+                                <button type="submit" class="btn btn-block">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- contentFor('customStyle') %>
+<link rel="stylesheet" href="/css/home.css">

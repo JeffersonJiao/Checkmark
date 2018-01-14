@@ -1,0 +1,139 @@
+.login-wrapper{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+.login{
+    position: relative;
+    width: 100%;
+    background-color: #eee;
+    padding: 1rem;
+    margin-top: 70px;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,.7);
+    height: auto;
+    max-height: 250px;
+    margin-bottom: 10px;
+}
+.login button,.register button{
+    background-color: rgba(44, 62, 80,1.0);
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.google-login{
+    margin-top: 10vh;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+}
+.google-login img{
+    margin-top: 30px; 
+}
+.google-login a{
+    font-weight: 600;
+}
+.top-part{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+.gmail-icon{
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+    margin-left: -10px;
+    background-image: url('/images/gmail-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    top:4px;
+}
+
+.vertical-line {
+    position: relative;
+    left: 50%;
+    text-align: center;
+    top:10vh;
+    display: inline-block;
+    height: 50vh;
+    width: 2px;
+    max-width: 2px;
+    background-color: rgba(236, 240, 241,1.0);
+    max-height: 50vh;
+  }
+  
+  .card {
+    background-color: #eee;
+  }
+
+.form-group, .form-group label, .form-group input{
+    padding: 0;
+    margin: 2px;
+}
+.form-group input{
+    border-radius: 0;
+}
+.register-class{
+    text-align: center;
+    margin-top: 20px;
+    padding: 0.8rem;
+    background-color: #eee;
+    font-weight: 600;
+}
+.register{
+    background-color: #eee;
+    padding: 15px;
+    max-width: 500px;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,.7);
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+.register .alert{
+    margin-top: 1rem;
+}
+.register .card-header{
+    text-align: center;
+    font-weight: 600;
+}
+.register button{
+    margin-top: 20px;
+}
+.login-btn{
+    margin: 2px;
+    font-weight: 500;
+}
+.google-login img{
+    height: 150px;
+    width: auto;
+}
+.alert{
+    margin-top: 20px;
+}
+@media only screen and (max-width: 576px) {
+    .login{
+        margin:10px;
+    }
+    .google-login{
+        margin: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .google-login img{
+        height: 100px;
+        width: auto;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .login-wrapper{
+        padding: 0px;
+    }
+}
+  @media only screen and (max-width: 992px) {
+    .vertical-line{
+        display: none;
+    }
+}

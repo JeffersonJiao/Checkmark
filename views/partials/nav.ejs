@@ -1,0 +1,61 @@
+<nav class="nav navbar-light">
+    <div class="container">
+        <% if(user ) {%>
+            <span class="account">
+                <a href="/"><%=user.username %></a>   
+            </span>
+        <% } %>
+      
+        <span id="menu" class="hamburger-menu float-right">&#9776;</span>
+    </div>
+</nav>
+<div id="myNav" class="overlay">
+    <div class="menu-wrapper">
+        <div class="overlay-content">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        Menu
+                    </div>
+                    <div class="card-body">
+                        <a href="/">Home</a>
+                        <hr>
+                        <div class="card">
+                            <div class="card-header">
+                                View friends checkmark
+                            </div>
+                            <div class="card-body">
+                                <form id="gotoCode">
+                                    <div class="form-group form-group-sm">
+                                        <input id="gtcmcode" type="text" placeholder="Enter checkmark code here..." class="form-control" name="checkmarkcode">
+                                    </div>
+                                    <button type="submit" class="btn btn-block">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <a href="/chat">Send message</a>
+                        <hr>
+                        <div class="card">
+                            <div class="card-header">
+                                Your checkmark code
+                            </div>
+                            <div class="card-body">
+                                <form id="refreshCode">
+                                    <div class="form-group form-group-sm">
+                                        <div class="code-wrapper">
+                                            <span id="cmcode" class="cmcode"><%=user.checkmarkcode%></span>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-block">Refresh code</button>
+                                </form>
+                            </div>
+                        </div>
+                        <hr>
+                        <a href="/auth/logout">Logout</a>
+                    </div>
+                </div>
+         
+        </div>
+    </div>
+</div>
