@@ -94,14 +94,19 @@ app.use((req,res,next)=>{
 
 //create home route 
 app.set('port',(process.env.PORT||3000));
-app.use('/',homeRoutes);
-app.use('/auth',authRoutes);
-app.use('/chat',chatRoutes);
-app.use('/other',otherRoutes);
+
 var server = app.listen(app.get('port'),()=>{
     console.log('app is now listening');
 });
 
-var io = socket(server);
-
+const io = socket(server)
 socketEvents(io);
+app.use(function(req,res,next){
+    req.io = io;
+    next();
+});
+app.use('/',homeRoutes);
+app.use('/auth',authRoutes);
+app.use('/chat',chatRoutes);
+app.use('/other',otherRoutes);
+module.exports = app;

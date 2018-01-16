@@ -2,9 +2,39 @@
 <div class="content">
     <div class="container">
         <div class="list-chat card card-primary">
-            <div class="card-header">My List</div>
+            <div class="card-header">
+                <% if(name =="Invalid Code"){%>
+                    <strong><%= name %></strong>
+                <%}else{ %>
+                    <strong>You are in <span><%= name %>'s</span> checkmark</strong>
+                <% } %>
+            </div>
             <div class="card-body">
-                <p>You dont have any list yet</p>
+                <% if(name =="Invalid Code"){%>
+                    <p>ERROR you are trying to get Superman's to do list</p>
+                <%}else{%>
+                    <%if(lists != ""){%>
+                        <% for(var i=0; i < lists.length; i++){ %>
+                            <div class="list-data-wrapper">
+    
+                     
+                            <%= lists[i].item %><br/>
+                            <small>Added by: 
+                                <% if(lists[i].poster_id != user.id) {%>
+                                    <%= lists[i].poster_name %>
+                                <%}else{%>
+                                    You
+                                <%}%>
+                            </small>
+                            <hr>
+    
+                            </div>
+                        <% } %>
+                    <% } else { %>
+                        <p>You dont have any list yet</p>
+                    <% } %>
+                <%}%>
+
             </div>
         </div>
         <div class="checkmark-form">
@@ -12,9 +42,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div>
-                            <form action="/" method="post">
+                            <form id="addFromOther">
                                 <div class="form-group form-group-sm">
-                                    <input type="text" placeholder="Add item" class="form-control" name="list">
+                                    <input id="OtherInputBox" type="text" placeholder="Add item" class="form-control" name="list">
+                                    <%if(name && name != "Invalid Code"){%>
+                                        <input id="hiddenCode" type="hidden" name="code" value='<%=code%>'/>
+                                    <%}%>
                                 </div>
                                 <button type="submit" class="btn btn-block">Submit</button>
                             </form>
@@ -26,7 +59,7 @@
     </div>
 </div>
 
-
-
+<%- contentFor('customScript') %>
+<script src="/js/other.js"></script>
 <%- contentFor('customStyle') %>
 <link rel="stylesheet" href="/css/home.css">

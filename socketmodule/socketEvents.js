@@ -1,17 +1,13 @@
-exports = module.exports = function(io) {  
-    // Set socket.io listeners.
-    io.on('connection', (socket) => {
-      
-        console.log('now listening');
+module.exports = (io)=>{
 
-        socket.on('goto other', (checkmarkcode) => {
-            
-           console.log(checkmarkcode);
-            });
-    
-        socket.on('disconnect', () => {
-        //console.log('user disconnected');
+    io.sockets.on('connection',(socket)=>{
+
+        socket.on('room', function(room) {
+            console.log("got the code");
+            socket.join(room);
         });
-
     });
-  }
+
+
+    
+}

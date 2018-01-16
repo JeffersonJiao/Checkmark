@@ -1,3 +1,4 @@
+const express = require('express');
 const passport = require('passport');
 const router = require('express').Router();
 const User = require('../models/user-model');
@@ -29,7 +30,6 @@ router.get('/',authCheck,(req,res)=>{
             });
         }
         else{
-            console.log("null");
             var query = {user_id:user_id};
             Checkmark.find(query,(err,result)=>{
                 if(result){
@@ -60,7 +60,6 @@ router.post('/',(req,res)=>{
         }).save().then((newitem)=>{
             Checkmark.find({checkmarkcode:userscode},(err,datas)=>{
                 if(err) throw err;
-                console.log(userscode)
                 res.json([datas,user_id]);
             });
         });
@@ -73,9 +72,21 @@ router.post('/getcode',authCheck,(req,res)=>{
     if (user_id.match(/^[0-9a-fA-F]{24}$/)) {
         User.findOne({_id:user_id},(err,user)=>{
        if(err) throw err;
-        user.checkmarkcode = user_id + Date.now(),
+        var newcode = user_id + Date.now();
+        var oldcode = user.checkmarkcode;
+        user.checkmarkcode = newcode,
         user.save((err,result)=>{
             if(err) throw err;
+            Checkmark.update(
+                {
+                    checkmarkcode:oldcode
+                },
+                {
+                    checkmarkcode:newcode,
+                },
+                {
+                    multi:true,
+                }).exec();
             res.json(result.checkmarkcode);
         });
     });

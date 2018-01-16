@@ -48,6 +48,9 @@ body{
     text-align: left;
     overflow: hidden;
 }
+.overlay-content .card-body button{
+    background-color: #eee;
+}
 .navbar-light{
     background-color: #2C3E50;
 }

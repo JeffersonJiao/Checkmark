@@ -15,22 +15,6 @@ $(document).ready(()=>{
             })
         }
     });
-    $("#gotoCode").on('submit',(e)=>{
-        e.preventDefault();
-
-        socket.emit('goto other',{
-            checkmarkcode: $("#gtcmcode").val(),
-        });
-
-        $.ajax({
-            type: "POST",
-            url: '/other',
-            dataType: 'json',
-            success: (result)=>{
-               
-            },
-          });
-    });
 
     $("#addItemForm").on('submit',(e)=>{
         e.preventDefault();
@@ -70,7 +54,7 @@ $(document).ready(()=>{
         $.ajax({
             type: "POST",
             url: '/getcode',
-            dataType: 'json',
+            contentType: 'application/json',
             success: (result)=>{
                 $("#cmcode").html(result);
                 setTimeout(()=>{
@@ -79,4 +63,33 @@ $(document).ready(()=>{
             },
           });
     });
+
+    var code = $("#hiddenCode").val();
+    if(code){
+        socket.on('connect', function() {
+            socket.emit('room', code);
+         });
+    }
+
+    socket.on('Update List',(data)=>{
+        console.log(data);
+    });
+    
+
+     $("#addFromOther").on('submit',(e)=>{
+        e.preventDefault();
+        var data ={};
+        data.item = $("#OtherInputBox").val();
+        data.code = code;
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(data),
+            url: '/other/requestfromfriend',
+            contentType: 'application/json',
+            success: (result)=>{
+                
+            },
+          });
+    });
+
 });
